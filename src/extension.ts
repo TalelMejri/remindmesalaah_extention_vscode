@@ -13,13 +13,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 async function updatePrayerTimes() {
     try {
-        // 1. Get user location
+     
         const locRes = await axios.get('https://ipapi.co/json/');
         const locData = locRes.data;
         const lat = locData.latitude;
         const lon = locData.longitude;
 
-        // 2. Get prayer times
+
         const now = new Date();
         const dateStr = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
         const apiURL = `https://api.aladhan.com/v1/timings/${dateStr}?latitude=${lat}&longitude=${lon}&method=2`;
@@ -29,7 +29,7 @@ async function updatePrayerTimes() {
         const timings = prayerData.data.timings;
         const current = new Date();
 
-        // 3. Find next prayer
+      
         let nextPrayer = '';
         let minDiff = Infinity;
 
@@ -39,7 +39,7 @@ async function updatePrayerTimes() {
             const prayerTime = new Date();
             prayerTime.setHours(h, m, 0, 0);
 
-            const diff = (prayerTime.getTime() - current.getTime()) / 60000; // in minutes
+            const diff = (prayerTime.getTime() - current.getTime()) / 60000; 
             if (diff >= 0 && diff < minDiff) {
                 minDiff = diff;
                 nextPrayer = name;
