@@ -3,13 +3,12 @@
   "displayName": "RemindMeSalaah",
   "description": "VS Code extension to remind you to pray",
   "version": "0.0.1",
+  "publisher": "RemindMeSalaah",
   "engines": {
     "vscode": "^1.101.0"
   },
   "categories": [
-    "Muslim",
-    "salaah",
-    "prayer"
+    "Other"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
